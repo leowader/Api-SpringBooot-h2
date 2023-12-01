@@ -1,5 +1,6 @@
 package com.api.hotel.controller;
 
+import com.api.hotel.error.HuespedNotFound;
 import com.api.hotel.model.Huesped;
 import com.api.hotel.service.HuespedService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,10 @@ public class HuespedController {
         return huespedService.getAllHuespedes();
     }
     //POST
+    @GetMapping("buscar/{id}")
+    public Huesped findById(@PathVariable Long id) throws HuespedNotFound {
+        return huespedService.findById(id);
+    }
     @PostMapping
     public Huesped createHuesped(@RequestBody   Huesped huesped){
         return  huespedService.createHuesped(huesped);
