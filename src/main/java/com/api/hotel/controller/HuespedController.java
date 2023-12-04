@@ -28,7 +28,7 @@ public class HuespedController {
         return  huespedService.createHuesped(huesped);
     }
     //PUT
-    @PostMapping("editar/{id}")
+    @PutMapping("editar/{id}")
     public Huesped updateHuesped(@RequestBody Huesped huesped,@PathVariable Long id){
 
         huesped.setIdHuesped(id);

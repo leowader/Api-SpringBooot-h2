@@ -14,7 +14,8 @@ public class ResResponseEntyty extends ResponseEntityExceptionHandler {
     @ExceptionHandler(HuespedNotFound.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseEntity<ErrorMessage> huespedNotFound(HuespedNotFound exception ){
+        System.out.println(exception.getMessage()+" codigo: "+HttpStatus.OK);
         ErrorMessage errorMessage = new ErrorMessage(HttpStatus.NOT_FOUND, exception.getMessage());//plantilla
-    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorMessage);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorMessage);
     }
 }
